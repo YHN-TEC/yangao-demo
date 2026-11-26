@@ -1,0 +1,494 @@
+/* The project index uses a folio and a readable abstract, with room for long titles. */
+.projects .intro {
+  padding-block: clamp(24px, 4vw, 52px) 24px;
+}
+
+.projects .projectWrap {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.projects .projectWrap > h2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0 18px;
+  border: 0;
+  font-size: 1rem;
+  color: var(--sub);
+}
+
+.projects .projectWrap > h2::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--line);
+}
+
+.projects .project {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: 1fr auto;
+  column-gap: clamp(16px, 2.4vw, 38px);
+  row-gap: 8px;
+  padding: clamp(18px, 2.1vw, 30px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(27, 38, 69, .045);
+}
+
+.projects .project + .project {
+  margin-top: 12px;
+}
+
+.projects .projectName {
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-columns: clamp(76px, 9vw, 126px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 2vw, 32px);
+}
+
+.projects .projectName h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: clamp(var(--type-detail), 1.75vw, 1.75rem);
+  line-height: 1.45;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.projects .project .meta {
+  color: var(--sub);
+  font-size: var(--type-meta);
+  line-height: 1.7;
+}
+
+.projects .project > .meta {
+  display: block;
+  grid-column: 2;
+  align-self: end;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.projects .project .btns {
+  grid-column: 2;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+
+.projects .project .btn {
+  min-height: 38px;
+  white-space: nowrap;
+}
+
+.projects .projectExcerpt {
+  max-width: 56ch;
+  margin-top: 12px;
+  font: 400 var(--type-body)/1.8 var(--serif);
+  color: var(--sub);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.projects .projectIcon {
+  position: relative;
+  isolation: isolate;
+  justify-self: stretch;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  width: auto;
+  height: auto;
+  min-height: 143px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--pale);
+  color: #fff;
+}
+
+/* A pocket-size bound folio sits in the project index. Its aspect ratio stays fixed as rows grow. */
+.projects .projectIcon::before,
+.projects .projectIcon::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 56px;
+  height: 77px;
+  transform: translate(-50%, -50%) rotate(-7deg);
+  border-radius: 2px 5px 5px 2px;
+}
+
+.projects .projectIcon::before {
+  left: calc(50% + 5px);
+  top: calc(50% + 3px);
+  background: #f8f9fc;
+  border: 1px solid #b9c2d2;
+  box-shadow: 0 6px 12px rgba(37, 52, 87, .16);
+}
+
+.projects .projectIcon::after {
+  background: var(--cover);
+  border: 1px solid var(--navy);
+  z-index: 0;
+}
+
+.projects .projectIcon svg {
+  z-index: 1;
+  width: 27px;
+  height: 29px;
+  stroke-width: 1.15;
+  transform: rotate(-7deg);
+}
+
+.projects .project:focus-within {
+  border-color: var(--blue);
+}
+
+/* The styling inspector is a narrow settings sheet; the primary surface is the paper. */
+.format .journalGrid {
+  grid-template-columns: minmax(0, 1fr) clamp(290px, 27%, 380px);
+}
+
+.format .journalGrid > .stage,
+.format .journalGrid > .inspector {
+  min-width: 0;
+}
+
+@media (min-width: 761px) {
+  .format .journalGrid {
+    height: auto;
+    align-items: start;
+  }
+
+  .format .journalGrid > .stage,
+  .format .journalGrid .sheets {
+    overflow: visible;
+  }
+
+  .format .journalGrid > .inspector,
+  .format .journalGrid .toolbar {
+    position: sticky;
+    top: 12px;
+  }
+
+  .format .journalGrid > .inspector {
+    max-height: calc(100dvh - 24px);
+  }
+
+  .format .journalGrid .toolbar {
+    z-index: 2;
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+.format .journalGrid .sheets {
+  padding: clamp(17px, 2.3vw, 34px) clamp(18px, 4vw, 75px) 46px;
+}
+
+.format .journalGrid .paper {
+  max-width: 740px;
+}
+
+.format .journalGrid .paper.journalB h2 {
+  text-align: start;
+}
+
+.format .journalGrid .paper.journalB .byline {
+  text-align: start;
+}
+
+.format .journalGrid .toggle {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.format .journalGrid .toggle button {
+  min-height: 27px;
+  padding: 3px 12px;
+  color: var(--sub);
+  border-radius: 5px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+.format .journalGrid .toggle .on {
+  background: var(--paper);
+  color: var(--blue);
+  box-shadow: 0 1px 4px rgba(23, 41, 79, .17);
+}
+
+.format .journalGrid .inspectBody {
+  padding: clamp(16px, 1.45vw, 24px);
+}
+
+.format .journalGrid .controlGroup {
+  gap: 8px;
+  margin: 0 0 15px;
+}
+
+.format .journalGrid .controlGroup select {
+  color: var(--ink);
+  background-color: var(--paper);
+  min-height: 44px;
+  padding: 9px 12px;
+  font-weight: 560;
+  font-size: var(--type-section);
+  border: 1px solid var(--line-control);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.format .journalGrid .controlGroup select:hover {
+  border-color: var(--blue);
+}
+
+.format .journalGrid details {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  border-radius: 6px;
+}
+
+.format .journalGrid details[open] summary {
+  margin-bottom: 7px;
+}
+
+.format .journalGrid .section {
+  margin-top: 20px;
+  padding-top: 17px;
+}
+
+.format .journalGrid .checkrow {
+  gap: 10px;
+  padding: 10px 0;
+  border-color: var(--line);
+  font-weight: 650;
+}
+
+.format .journalGrid .checkrow:last-child {
+  border: 0;
+}
+
+.format .journalGrid .checkrow > svg {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 25px;
+  padding: 5px;
+  background: var(--accepted-text);
+  color: var(--teal);
+  border-radius: 50%;
+}
+
+.format .journalGrid .checkrow.warn > svg {
+  background: var(--warning-tint);
+  color: var(--amber);
+}
+
+.format .journalGrid .checkrow small {
+  color: var(--sub);
+  margin-top: 3px;
+  font-weight: 400;
+}
+
+.format .journalGrid .checkrow .link {
+  margin-top: 3px;
+}
+
+.format .journalGrid .actionDock {
+  padding: 14px clamp(16px, 1.45vw, 24px);
+}
+
+.format .journalGrid .actionDock .btn {
+  min-height: 41px;
+}
+
+@media (max-width: 1180px) {
+  .projects .project {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    row-gap: 14px;
+  }
+
+  .projects .projectName {
+    grid-row: 1;
+  }
+
+  .projects .project > .meta {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    align-self: center;
+  }
+
+  .projects .project .btns {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 720px) {
+  .projects .intro {
+    padding-block: 20px 14px;
+  }
+
+  .projects .project {
+    padding: 16px;
+    border-radius: 10px;
+    row-gap: 10px;
+  }
+
+  .projects .projectName {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .projects .projectName h3 {
+    font-size: var(--type-detail);
+    line-height: 1.5;
+  }
+
+  .projects .projectIcon {
+    min-height: 96px;
+  }
+
+  .projects .projectIcon::before,
+  .projects .projectIcon::after {
+    width: 35px;
+    height: 50px;
+  }
+
+  .projects .projectIcon svg {
+    width: 20px;
+    height: 21px;
+  }
+
+  .projects .projectExcerpt {
+    font-size: var(--type-section);
+    margin-top: 6px;
+  }
+
+  .projects .project > .meta,
+  .projects .project .btns {
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .projects .project .btns {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .format .journalGrid .sheets {
+    padding: 15px 10px 26px;
+  }
+
+  .format .journalGrid .toggle button,
+  .format .journalGrid .actionDock .btn,
+  .projects .project .btn {
+    min-height: 44px;
+  }
+
+  .format .journalGrid .toolbar {
+    height: auto;
+    min-height: 56px;
+  }
+}
+
+/* Keep the selected template and the visible paper together on small screens. */
+@media (max-width: 720px) {
+  .format .workspace.journalGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 9fr);
+    grid-template-areas:
+      "heading heading"
+      "version journal"
+      "stage   stage"
+      "meta    meta"
+      "rules   rules"
+      "checks  checks"
+      "export  export";
+  }
+
+  .format .journalGrid > .inspector,
+  .format .journalGrid .inspector > .inspectBody {
+    display: contents;
+  }
+
+  .format .journalGrid > .stage {
+    grid-area: stage;
+    height: clamp(360px, 53dvh, 540px);
+  }
+
+  .format .journalGrid .panelhead {
+    grid-area: heading;
+    margin: 0;
+  }
+
+  .format .journalGrid .controlGroup {
+    margin: 13px 0;
+    min-width: 0;
+  }
+
+  .format .journalGrid .controlGroup:has(#version) {
+    grid-area: version;
+    margin-inline: 12px 5px;
+  }
+
+  .format .journalGrid .controlGroup:has(#journal) {
+    grid-area: journal;
+    margin-inline: 5px 12px;
+  }
+
+  .format .journalGrid .controlGroup select {
+    min-width: 0;
+    padding-inline: 4px;
+    font-size: var(--type-control);
+  }
+
+  .format .journalGrid .inspectBody > .smalltext {
+    grid-area: meta;
+    margin: 15px 14px 0;
+  }
+
+  .format .journalGrid .inspectBody > details {
+    grid-area: rules;
+    margin: 9px 14px 0;
+  }
+
+  .format .journalGrid .inspectBody > .section {
+    grid-area: checks;
+    margin: 16px 14px;
+  }
+
+  .format .journalGrid .actionDock {
+    grid-area: export;
+  }
+}
+
+@media (max-width: 360px) {
+  .format .workspace.journalGrid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "heading" "version" "journal" "stage" "meta" "rules" "checks" "export";
+  }
+
+  .format .journalGrid .controlGroup:has(#version),
+  .format .journalGrid .controlGroup:has(#journal) {
+    margin: 8px 12px;
+  }
+}

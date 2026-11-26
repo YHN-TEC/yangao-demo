@@ -1,0 +1,67 @@
+.authScreen {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(300px, 42%) minmax(0, 1fr);
+  background: #f4f1ea;
+  color: var(--ink);
+}
+.authCover {
+  background: #172540 url('assets/campus-engraving.webp') 69% center / auto 100% no-repeat;
+  border-right: 1px solid #46546b;
+  padding: clamp(24px, 5vw, 74px);
+}
+.authLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font: 700 29px var(--serif);
+  text-decoration: none;
+  background: var(--navy);
+  padding: 8px 11px;
+  border-radius: 7px;
+}
+.authLogo svg { width: 31px; height: 31px; }
+.authMain {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  max-width: none;
+  width: 100%;
+  padding: 38px clamp(20px, 7vw, 104px);
+}
+.authCard { width: min(100%, 385px); }
+.authCard h1 { font: 700 clamp(31px, 3.4vw, 48px)/1.2 var(--serif); }
+.authDescription { color: #485870; margin: 12px 0 27px; line-height: 1.7; }
+.authForm { display: grid; gap: 8px; }
+.authForm label { font-weight: 650; font-size: .9375rem; }
+.authForm input, #projectName {
+  width: 100%;
+  min-height: 45px;
+  padding: 9px 12px;
+  border: 1px solid #8997ad;
+  border-radius: 7px;
+  color: var(--ink);
+  background: white;
+}
+.authForm input + label { margin-top: 9px; }
+.authForm button { margin-top: 12px; min-height: 45px; }
+.authAlternative { margin-top: 20px; color: #485870; }
+.authAlternative button { margin-left: 6px; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.authError, .aiError { color: #852c28; line-height: 1.6; margin: 0 0 12px; }
+.authLinks { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 19px; }
+.authLinks a { color: var(--blue); text-underline-offset: 3px; }
+.projectEmpty { color: var(--sub); padding: 24px; }
+.projectEmpty p { margin-bottom: 14px; line-height: 1.7; }
+.projectName .manuscriptName { margin: 6px 0; color: var(--sub); }
+.saveState { white-space: nowrap; }
+.saveState button { padding: 0; color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.aiControls { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 11px; margin-top: 10px; }
+.aiModel { font-size: .8rem; color: var(--sub); }
+.aiError { margin-top: 8px; font-size: .8125rem; }
+@media (max-width: 680px) {
+  .authScreen { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .authCover { min-height: 108px; border-right: 0; background-size: cover; background-position: center 55%; padding: 20px; }
+  .authMain { align-content: start; padding-top: 38px; }
+  .contextbar .actions { min-width: 0; flex-wrap: wrap; }
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#10151d">
+  <title>砚稿 · 按意见改论文，按期刊排版</title>
+  <meta name="description" content="导入带批注的 Word，定位导师意见并手动改稿。逐条跟进期刊返修，用同一份主稿试排期刊格式并导出 Word 副本。">
+  <link rel="stylesheet" href="studio.css">
+  <link rel="stylesheet" href="atelier.css">
+  <link rel="stylesheet" href="secondary.css">
+  <link rel="stylesheet" href="review.css">
+  <link rel="stylesheet" href="welcome.css">
+  <link rel="stylesheet" href="account.css">
+  <script defer src="vendor/jszip.min.js"></script>
+  <script defer src="motion.js"></script>
+  <script defer src="browser-workspace.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div id="welcome">
+    <a class="skip" href="#overview">跳至产品介绍</a>
+    <header class="publicHeader"><div class="publicBar">
+      <a class="wordmark" href="#home" aria-label="砚稿首页"><svg viewBox="0 0 40 40" aria-hidden="true"><path fill="#dce4fa" stroke="none" d="M5 10q9-1 15 4v19q-8-6-15-4z"/><path fill="#9bb3e0" stroke="none" d="M22 14q6-6 14-7v20q-8 2-14 6z"/><path fill="white" stroke="none" d="m13 8 5-5 8 4-6 5z"/></svg>砚稿</a>
+      <nav aria-label="首页导航"><a href="#features">产品功能</a><a href="#guide">使用指南</a></nav>
+      <a class="entry" href="#workspace">进入演示 <span aria-hidden="true">↗</span></a>
+    </div></header>
+    <main class="publicMain" id="overview">
+      <section class="publicHero" aria-labelledby="heroTitle">
+        <div class="engraving" aria-hidden="true"></div>
+        <div class="publicInner heroText">
+          <h1 id="heroTitle">改论文，少翻找<br>换期刊，少重排</h1>
+          <p>导入 Word 定位导师批注，也可以用示例论文体验逐条改稿。<br class="wideBreak">收到返修意见可逐项跟进，换期刊时从同一份主稿生成 Word 副本。</p>
+          <div class="heroActions"><a class="entry" href="#workspace">进入演示 <span aria-hidden="true">→</span></a><a class="outlineEntry" href="#guide">查看使用指南</a></div>
+        </div>
+      </section>
+      <section class="publicInner featureArea" id="features" aria-labelledby="featuresTitle">
+        <h2 id="featuresTitle">从导师改稿到期刊返修</h2>
+        <div class="scenes">
+          <article>
+            <span class="stageLabel">投稿前</span>
+            <h3>点开批注就能定位原文</h3>
+            <p>导入带批注的 Word，点开导师意见就能查看对应的文字。可对照示例建议，或填写自己的修改稿，确认后采纳或撤销。</p>
+          </article>
+          <article>
+            <span class="stageLabel">准备投稿或转投</span>
+            <h3>同一份主稿，按期刊换格式</h3>
+            <p>选择模板后，直接预览字体、标题和行距的变化。摘要超长会有提示。核对完可导出新的 Word 副本，留存每次投稿的版本。</p>
+            <p class="sceneNote">目前可用演示模板试排。</p>
+          </article>
+          <article>
+            <span class="stageLabel">收到大修或小修意见</span>
+            <h3>每条返修意见都有进度</h3>
+            <p>粘贴审稿意见，关联要改的段落。采纳后会记录为已处理。下次打开，就知道该从哪条接着改。</p>
+          </article>
+        </div>
+      </section>
+      <section class="guideArea" id="guide" aria-labelledby="guideTitle">
+        <div class="publicInner guideGrid">
+          <div>
+            <h2 id="guideTitle">用一篇稿件试一次</h2>
+            <p>手头没有文档？进入演示后，打开内置示例论文，就能先试批注定位和改稿。</p>
+          </div>
+          <ol>
+            <li><div><h3>新建项目，导入论文</h3><p>在浏览器中打开带导师批注的 Word 文件（.docx）。如果已经收到返修意见，就在改稿工作台切换到「投稿后」，再粘贴审稿意见。</p></div></li>
+            <li><div><h3>选一条意见，看看要改哪里</h3><p>定位原文后，核对示例建议或填写修改稿。确认并采纳后，系统会保存一个新主稿版本。</p></div></li>
+            <li><div><h3>导出要交给导师或期刊的 Word</h3><p>交给导师时，可导出带修订的审阅稿。准备投稿时，到「期刊排版」核对格式，再导出独立副本。</p></div></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+    <footer class="publicFooter publicInner"><strong>砚稿</strong><span>网页演示 · 项目和改稿记录保存在当前浏览器。</span></footer>
+  </div>
+  <section class="authScreen" id="auth" aria-labelledby="authTitle" hidden>
+    <main class="authMain"><div class="authCard">
+      <h1 id="authTitle" tabindex="-1">正在打开砚稿演示</h1>
+      <p class="authDescription" role="status">正在读取当前浏览器中的项目。</p>
+      <a href="#home">返回首页</a>
+    </div></main>
+  </section>
+  <a class="skip studioSkip" href="#main">跳至工作区</a>
+  <div id="app" hidden></div>
+  <dialog id="dialog"><div id="dialogContent"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <input type="file" hidden id="file" accept=".docx,.txt">
+</body></html>
